@@ -1,0 +1,152 @@
+const a = <button type="button" id="blue-btn"></button>;
+const b = <button type="button" id="green-btn"></button>;
+const c = <button type="button" id="purple-btn"></button>;
+const d = <button type="button" id="silver-btn"></button>;
+const e = <button type="button" id="pink-btn"></button>;
+const f = <button type="button" id="yellow-btn"></button>;
+const g = <button type="button" id="black-btn"></button>;
+const h = <button type="button" id="orange-btn"></button>;
+
+var intento1 = "";
+var intento1_int = 0;
+var intento2 = "";
+var intento2_int = 0;
+var puntos = 0;
+var intentos = 0;
+
+var cards = [a,b,c,d,e,f,g,h,a,b,c,d,e,f,g,h];
+shuffle(cards);
+
+class Comp extends React.Component {
+  changeColor(theId, theInt){
+    
+    if (intento1 !== "" && intento2 !== ""){
+      return(0);
+    }
+    
+    if (intento1 === ""){
+      intento1 = theId;
+      intento1_int = theInt;
+    }
+    
+    else if (intento2 === ""){
+      intento2 = theId;
+      intento2_int = theInt;
+    }
+    
+    ReactDOM.render(cards[theInt],document.getElementById(theId));
+    console.log(intento1);
+    console.log(intento2);
+    console.log(intento1 !== "" && intento2 !== "");
+    if (intento1 != "" && intento2 != ""){
+      if (cards[intento1_int] === cards[intento2_int]){
+        puntos++;
+        intentos++;
+        
+        intento1 = "";
+        intento1_int = 0;
+        intento2 = "";
+        intento2_int = 0;
+        
+        document.getElementById("pts").innerHTML = "Puntos: " + puntos.toString();
+      document.getElementById("intentosCount").innerHTML = "Intentos: " + intentos.toString();
+        
+        if (puntos === 8){
+          document.getElementById("title").innerHTML = "YOU WON!!!";
+        }
+      }
+      
+      else{
+        
+        var el1 = <button type="button" onClick={this.changeColor.bind(this, intento1,intento1_int)}></button>
+            
+        var el2 = <button type="button" onClick={this.changeColor.bind(this, intento2,intento2_int)}></button>
+        
+        setTimeout(function() { 
+          ReactDOM.render(el1,document.getElementById(intento1));
+        
+          ReactDOM.render(el2,document.getElementById(intento2));
+    
+          intento1 = "";
+          intento1_int = 0;
+          intento2 = "";
+          intento2_int = 0;
+    
+          intentos++;
+          
+          document.getElementById("intentosCount").innerHTML = "Intentos: " + intentos.toString();
+        }, 1300);
+      }
+    }  
+  }
+
+  render() {
+    return (
+      <div>
+        <div class="grid">
+          <div class="gridComp" id="g1">
+            <button type="button" onClick={this.changeColor.bind(this, "g1",0)}></button>
+          </div>
+          <div class="gridComp" id="g2">
+            <button type="button" onClick={this.changeColor.bind(this, "g2",1)}></button>
+          </div>
+          <div class="gridComp" id="g3">
+            <button type="button" onClick={this.changeColor.bind(this, "g3",2)}></button>
+          </div>
+          <div class="gridComp" id="g4">
+            <button type="button" onClick={this.changeColor.bind(this, "g4",3)}></button>
+          </div>
+          <div class="gridComp" id="g5">
+            <button type="button" onClick={this.changeColor.bind(this, "g5",4)}></button>
+          </div>
+          <div class="gridComp" id="g6">
+            <button type="button" onClick={this.changeColor.bind(this, "g6",5)}></button>
+          </div>
+          <div class="gridComp" id="g7">
+            <button type="button" onClick={this.changeColor.bind(this, "g7",6)}></button>
+          </div>
+          <div class="gridComp" id="g8">
+            <button type="button" onClick={this.changeColor.bind(this, "g8",7)}></button>
+          </div>
+          <div class="gridComp" id="g9">
+            <button type="button" onClick={this.changeColor.bind(this, "g9",8)}></button>
+          </div>
+          <div class="gridComp" id="g10">
+            <button type="button" onClick={this.changeColor.bind(this, "g10",9)}></button>
+          </div>
+          <div class="gridComp" id="g11">
+            <button type="button" onClick={this.changeColor.bind(this, "g11",10)}></button>
+          </div>
+          <div class="gridComp" id="g12">
+            <button type="button" onClick={this.changeColor.bind(this, "g12",11)}></button>
+          </div>
+          <div class="gridComp" id="g13">
+            <button type="button" onClick={this.changeColor.bind(this, "g13",12)}></button>
+          </div>
+          <div class="gridComp" id="g14">
+            <button type="button" onClick={this.changeColor.bind(this, "g14",13)}></button>
+          </div>
+          <div class="gridComp" id="g15">
+            <button type="button" onClick={this.changeColor.bind(this, "g15",14)}></button>
+          </div>
+          <div class="gridComp" id="g16">
+            <button type="button" onClick={this.changeColor.bind(this, "g16",15)}></button>
+          </div>
+        </div>
+        <p id="title">Match All The Colors</p>
+        <p id="intentosCount">Intentos: 0</p>
+        <p id="pts">Puntos: 0</p>
+      </div>
+    );
+  }
+}
+
+function shuffle(array){
+  for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+ReactDOM.render(<Comp/>,document.getElementById('root'));
+

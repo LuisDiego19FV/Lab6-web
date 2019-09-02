@@ -1,0 +1,104 @@
+button {
+  background-color: red;
+  height:100%;
+  width:100%;
+  border: none;
+}
+
+#blue-btn{
+  background-color: blue;
+  height:100%;
+  width:100%;
+  border: none;
+}
+
+#green-btn{
+  background-color: green;
+  height:100%;
+  width:100%;
+  border: none;
+}
+
+#purple-btn{
+  background-color: purple;
+  height:100%;
+  width:100%;
+  border: none;
+}
+
+#silver-btn{
+  background-color: silver;
+  height:100%;
+  width:100%;
+  border: none;
+}
+
+#pink-btn{
+  background-color: pink;
+  height:100%;
+  width:100%;
+  border: none;
+}
+
+#yellow-btn{
+  background-color: yellow;
+  height:100%;
+  width:100%;
+  border: none;
+}
+
+#black-btn{
+  background-color: black;
+  height:100%;
+  width:100%;
+  border: none;
+}
+
+#orange-btn{
+  background-color: orange;
+  height:100%;
+  width:100%;
+  border: none;
+}
+
+.gridComp {
+  background-color: white;
+  
+}
+
+.grid {
+  float: left;
+  width: 500px;
+  height: 500px;
+  display: grid;
+  grid-gap: 10px 10px;
+  grid-template-columns: 23.7% 23.7% 23.7% 23.7%;
+  grid-template-rows: 23.7% 23.7% 23.7% 23.7%;
+  background-color: #C20114;;
+  padding: 10px;
+}
+
+#title {
+  position: absolute;
+  left: 550px;
+  font-size: 42px;
+  color: #C20114;
+}
+
+
+#pts {
+  position: absolute;
+  left: 550px;
+  top: 140px;
+  font-size: 26px;
+  color: #C20114;
+}
+
+
+#intentosCount {
+  position: absolute;
+  left: 550px;
+  top: 100px;
+  font-size: 26px;
+  color: #C20114;
+}
